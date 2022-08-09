@@ -1,0 +1,52 @@
+terraform init
+terraform apply
+terraform apply -auto-approve
+
+terraform destroy -target aws_subnet.dev-subnet-2
+terraform plan
+terraform destroy
+terraform state list
+terraform state show aws_subnet.dev-subnet-2
+
+
+
+==========
+output "development-subnet-availability_zone" {
+  value = aws_subnet.dev-subnet.availability_zone
+
+
+terraform apply -var "subnet_cidr_block=10.0.10.0/24"
+enter a value yes
+
+==============
+
+enterening a variabale value in seperate file
+
+filename .tfvars
+
+
+subnet_cidr_block ="10.0.40.0/24"
+
+
+===========
+
+ for new varibale files 
+
+terraform apply -var-file terraform-dev.tfvars
+
+  # we have to set it as environment varibale for safety purpose 
+  # in CMD we type the following   export is for linux  , set for windows 
+  # set AWS_SECRET_ACCESS_KEY=CfzCTVePowPqjcg+oSoxWVash20jdGid2pNB6fPD
+  # set AWS_ACCESS_KEY_ID=AKIAYSELN7WJSDB6AEGE
+  # export AWS_SECRET_ACCESS_KEY=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
+  # export AWS_ACCESS_KEY_ID=AKIAYSELN7WJSDB6AEGE
+
+
+
+env | grep AWS
+
+aws configure  #to globally configure IAM USER
+
+export 
+set TF_VAR_avail_zone="ap-south-1a"  #to set global variable 
+
